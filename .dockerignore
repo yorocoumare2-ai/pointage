@@ -1,0 +1,7 @@
+.git
+.gitignore
+Dockerfile
+app.yaml
+pointage_implementation_walkthrough.md
+analyse_approche_pointage.md
+.dockerignore

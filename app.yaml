@@ -1,0 +1,32 @@
+# ==============================================================================
+# CONFIGURATION GOOGLE CLOUD APP ENGINE - CIRA SAS POINTAGE
+# ==============================================================================
+runtime: php82
+
+# Variables d'environnement pour la connexion à la base de données
+env_variables:
+  # Host TCP (si vous utilisez une base SQL externe sur le web)
+  DB_HOST: '127.0.0.1'
+  
+  # Nom de la base de données sur Cloud SQL
+  DB_NAME: 'cira_pointage'
+  
+  # Identifiants de connexion de votre instance Cloud SQL
+  DB_USER: 'cira_admin'
+  DB_PASS: 'VOTRE_MOT_DE_PASSE_SECURISE'
+  
+  # CONNEXION SOCKET CLOUD SQL (Recommandée sur App Engine)
+  # Décommentez la ligne ci-dessous et remplacez par le nom de connexion de votre instance Cloud SQL MySQL
+  # Format : projet-id:region:nom-instance
+  # DB_SOCKET: '/cloudsql/PROJET_ID:REGION:INSTANCE_NAME'
+
+# Gestion des fichiers statiques pour optimiser les performances
+handlers:
+  # Fichiers CSS
+  - url: /(.*\.css)
+    static_files: \1
+    upload: .*\.css
+
+  # Tous les autres scripts PHP
+  - url: /.*
+    script: auto

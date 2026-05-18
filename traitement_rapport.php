@@ -43,13 +43,16 @@ $id = intval($_GET['id']);
             NOW()
         )
         ";
-        header("Location: presence.php?msg=archives_ok");
-        exit();
         
         if (!mysqli_query($conn, $insert)) {
             die("Erreur INSERT : " . mysqli_error($conn));
         }
-       
+        
+        // Supprimer la ligne originale de la table active
+        mysqli_query($conn, "DELETE FROM presences WHERE id = $id");
+
+        header("Location: presence.php?msg=archives_ok");
+        exit();
     }
 
             // ======= Supprimer ======/

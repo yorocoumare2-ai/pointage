@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `cira_pointage`
 --
+CREATE DATABASE IF NOT EXISTS `cira_pointage`;
+USE `cira_pointage`;
 
 -- --------------------------------------------------------
 
@@ -38,7 +40,7 @@ CREATE TABLE `employes` (
   `qr_token` varchar(100) DEFAULT NULL,
   `actif` tinyint(1) DEFAULT '1',
   `premiere_connexion` tinyint(1) DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `employes`
@@ -62,7 +64,7 @@ CREATE TABLE `presences` (
   `heure_sortie` time DEFAULT NULL,
   `statut` enum('present','absent') DEFAULT 'present',
   `cree_le` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -75,7 +77,7 @@ CREATE TABLE `qr_codes` (
   `token` varchar(255) DEFAULT NULL,
   `type` enum('ENTREE','SORTIE') DEFAULT NULL,
   `actif` tinyint DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,7 @@ CREATE TABLE `rapports_archives` (
   `heure_sortie` time DEFAULT NULL,
   `statut` enum('present','absent') DEFAULT 'present',
   `date_archivage` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -104,7 +106,7 @@ CREATE TABLE `users` (
   `usermane` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `role` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Index pour les tables déchargées
